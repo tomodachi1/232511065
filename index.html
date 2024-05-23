@@ -1,0 +1,409 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+ <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
+
+ >
+    <title>SİNEMA</title>
+    <link href="https://fonts.googleapis.com/css2?family=Work+Sans&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/styles.css">
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+
+</head>
+<style>
+    
+</style>
+<body>
+  <button onclick="mesajGoster()">Tıkla</button>
+  <button id="changeBackgroundButton">Arkaplan Rengini Değiştir</button>
+  <p id="saat"></p>
+
+  <button onclick="toggleDarkMode()"> Dark Mode</button>
+  
+  <button id="animateButton">Animasyonu Başlat</button>
+
+  <div id="demo"></div>
+  
+
+<div id="demo" style="display: none;">Gösterilecek metin.</div>
+
+
+<header class="header"> 
+    <a href="#" class="logo">  <img src="img/logoo.png" onmouseover="resmiDegistir()" alt="logo"></a>
+  <nav class="navbar">
+    <a href="index.html" class="active">SİNEMA</a>
+    <a class="accordion" href="#" >FİLM</a>
+    <div class="panel">TİTANİC <br> KİLLBİLL
+
+    </div>
+    <a class="accordion" href="#" >DİZİ</a>
+    <div class="panel">BREAKİNG BAD <br> BOJACK HORSEMAN</div>
+    <a class="accordion" href="#" >ANİME</a>
+    <div class="panel">JOJO <br>
+    VİLAND SAGA</div>
+    <a href="contact.html" >contact us</a>
+  </nav>
+  <div class="buttons">
+    <button id="search-btn">
+      <i class="fas fa-search"></i>
+    </button>
+    <button id="cart-btn">
+      <i class="fas fa-shopping-cart"></i>
+    </button>
+    <button id="menu-btn">
+      <i class="fas fa-bars"></i>
+    </button>
+  </div>
+
+  <div class="search-form">
+    <input
+    onkeyup="karakterSayisiniGoster()"
+      type="text"
+      class="search-input"
+      id="search-box"
+      placeholder="search here"
+      
+    />
+    <div id="karakterSayisi"></div>
+    <i class="fas fa-search"></i>
+  </div>
+
+  <div class="cart-items-container">
+    <div class="cart-item">
+      <i class="fas fa-times"></i>
+      <img src="img/braveheart.png" alt="menu" />
+      <div class="content">
+        <h3>cart item 01</h3>
+        <div class="price">99.99TL/-</div>
+      </div>
+    </div>
+    <div class="cart-item">
+      <i class="fas fa-times"></i>
+      <img src="img/green.png" alt="menu" />
+      <div class="content">
+        <h3>cart item 02</h3>
+        <div class="price">99.99TL/-</div>
+      </div>
+    </div>
+    <div class="cart-item">
+      <i class="fas fa-times"></i>
+      <img src="img/kill.png" alt="menu" />
+      <div class="content">
+        <h3>cart item 03</h3>
+        <div class="price">$99.99TL/-</div>
+      </div>
+    </div>
+    <div class="cart-item">
+      <i class="fas fa-times"></i>
+      <img src="img/scareface.png" alt="menu" />
+      <div class="content">
+        <h3>cart item 04</h3>
+        <div class="price">99.99TL/-</div>
+      </div>
+    </div>
+    <a href="#" class="btn">checkout now</a>
+  </div>
+    
+</header>
+<section class="home" id="home">
+ 
+  <div
+    class="content"
+  
+  >
+  <h3>ÜYE OL</h3>
+  <p>Bu ay çıkan filmleri sinemada ücretsiz bir şekilde izlemek ayda sadece 300tl. Üye ol ve bu fırsattan sen de yararlan!!</p>
+  <a href="#" class="btn" id="baslik">ÜYE OL</a>
+  <button onclick="basligiDegistir()">ol</button>
+  </div>
+  
+</section>   
+
+<section class="menu" id="menu">
+  <h1 class="heading">FİLM <span>LİSTESİ</span></h1>
+  <div class="box-container">
+    <div class="box">
+      <div class="box-head">
+        <img src="img/braveheart.png" alt="menu" />
+        <span class="menu-category">BRAVE HEART</span>
+        <p>  Cesur Yürek; Mel Gibson'in yönettiği ve başrolünü oynadığı tarihî, yarı kurgusal film. William Wallace'ın hayatını anlatır. Vikipedi
+          Gösterime giriş tarihi: 22 Eylül 1995 (Türkiye)
+          Yönetmeni: Mel Gibson
+          Film müziğinin bestecisi: James Horner
+          Aldığı ödüller: En İyi Yönetmen Oscar'ı, En İyi Film Oscar'ı, DİĞER
+          Bütçe: 53 milyon Amerikan doları
+          Hasılat: 100,204,000 $</p>
+        <div class="price">99.99TL<span>139.99</span></div>
+      </div>
+      <div class="box-bottom">
+        <a href="#" class="btn">add to cart</a>
+      </div>
+    </div>
+    <div class="box">
+      <div class="box-head">
+        <img src="img/scareface.png" alt="menu" />
+        <span class="menu-category">SCAREFACE</span>
+      <p>Yaralı Yüz; Brian DePalma'nın yönettiği, Al Pacino'nun başrol oynadığı 1983 yapımı suç ve drama filmidir. Aynı isimli 1932 yapımı Yaralı Yüz'ün serbest uyarlamasıdır. Vikipedi
+        Gösterime giriş tarihi: Aralık 1985 (Türkiye)
+        Yönetmeni: Brian De Palma
+        Adaylıklar: Altın Küre En Özgün Film Müziği Ödülü, DİĞER
+        Uyarlandığı eser: Yaralı Yüz, Scarface</p>
+        <div class="price">99.99TL <span>139.99</span></div>
+      </div>
+      <div class="box-bottom">
+        <a href="#" class="btn">add to cart</a>
+      </div>
+    </div>
+    <div class="box">
+      <div class="box-head">
+        <img src="img/mom.png" alt="menu" />
+        <span class="menu-category">MEMORİES OF MURDER</span>
+       <p>Cinayet Günlüğü, Bong Joon-ho'nun yönettiği 2003 Güney Kore yapımı drama filmidir. Film 1986 ve 1991 yılları arasında Hwaseong, Gyeonggi şehrinde geçen ülkenin ilk seri cinayetlerinin gerçek hikâyesini temel alır. Filmin sinematografisi ve Song Kang-ho'nun performansı geniş ölçüde beğeni kazanmıştır. Vikipedi
+        Gösterime giriş tarihi: 25 Nisan 2003 (Güney Kore)
+        Yönetmeni: Bong Joon-ho
+        Aldığı ödüller: En İyi Erkek Oyuncu Dalında Büyük Çan Ödülü, DİĞER
+        Müzik: Tarō Iwashiro
+        Senarist: Bong Joon-ho; Kim Kwang-rim; Shim Sung-bo</p>
+        <div class="price">99.99TL <span> 139.99</span></div>
+      </div>
+      <div class="box-bottom">
+        <a href="#" class="btn">add to cart</a>
+      </div>
+    </div>
+    <div class="box">
+      <div class="box-head">
+        <img src="img/titanic.png" alt="menu" />
+        <span class="menu-category">TİTANİC</span>
+      <p>Titanik, James Cameron'ın yönetmenlik, senaristlik, ortak yapımcılık ve ortak kurgu yönetmenliğini yaptığı, 1997 yılı Amerikan yapımı epik, felaket ve romantizm temalı sinema filmi. Vikipedi
+        Gösterime giriş tarihi: 20 Şubat 1998 (Türkiye)
+        Yönetmeni: James Cameron
+        Film müziğinin bestecisi: James Horner
+        Aldığı ödüller: En İyi Film Oscar'ı, En İyi Yönetmen Oscar'ı, DİĞER
+        Bütçe: $200 milyon
+        Hasılat: US$2,187 milyar</p>
+        <div class="price">99.99TL <span>139.99</span></div>
+      </div>
+      <div class="box-bottom">
+        <a href="#" class="btn">add to cart</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="products" id="products">
+  <h1 class="heading">DİĞER<span>FİLMLER</span></h1>
+  <div class="box-container">
+    <div class="box">
+      <div class="box-head">
+        <span class="title">GREEN BOOK</span>
+        <a href="#" class="name"><h6>OSCARLI FİLM</h6></a>
+      </div>
+      <div class="image">
+        <img src="img/green.png" alt="" />
+      </div>
+      <div class="box-bottom">
+        <div class="info">
+          <b class="price">99.99TL</b>
+          <span class="amount">SAAT 19.00</span>
+        </div>
+        <div class="product-btn">
+          <a href="#">
+            <i class="fas fa-plus"></i>
+          </a>
+        </div>
+      </div>
+    </div>
+    <div class="box">
+      <div class="box-head">
+        <span class="title">KİLL BİLL</span>
+        <a href="#" class="name"> <h6>Quentin Tarantino</h6></a>
+      </div>
+      <div class="image">
+        <img src="img/kill.png" alt="" />
+      </div>
+      <div class="box-bottom">
+        <div class="info">
+          <b class="price">99.99TL</b>
+          <span class="amount">SAAT 15.30</span>
+        </div>
+        <div class="product-btn">
+          <a href="#">
+            <i class="fas fa-plus"></i>
+          </a>
+        </div>
+      </div>
+    </div>
+    <div class="box dark-bg">
+      <div class="box-head">
+        <span class="title"></span>
+        <a href="#" class="name"><h6></h6></a>
+      </div>
+      <div class="image">
+        <img src="img/pulp.png" alt="" />
+      </div>
+      <div class="box-bottom">
+        <div class="info">
+          <b class="price">99.99TL</b>
+          <span class="amount">SAAT 10.00</span>
+        </div>
+        <div class="product-btn">
+          <a href="#">
+            <i class="fas fa-plus"></i>
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="blogs" id="blogs">
+  <h1 class="heading">çok<span> yakında</span></h1>
+  <div class="box-container">
+    <div class="box">
+      <div class="image">
+      <img src="img/s.png" alt="">
+      </div>
+      <div class="content">
+        <a href="#" class="title">Eternal Sunshine of the Spotless Mind</a>
+        <span>25 mayıs 2024</span>
+        <p>
+          Sil Baştan, ayrıldığı sevgilisinden kalan hatırlarını sildiren bir adamın hikayesini anlatıyor. </p>
+        <a href="#" class="btn">read more</a>
+      </div>
+    </div>
+    <div class="box">
+      <div class="image">
+<img src="img/s.png" alt="">
+      </div>
+      <div class="content">
+        <a href="#" class="title">a beatufil mind</a>
+        <span>10 aralık 2024</span>
+        <p>
+          Akıl Oyunları, asosyal bir matematikçi olan John Nash'in hayatını konu ediyor. John Forbes Nash azandığı bir bursla Princeton Üniversitesi'nde öğrenim görmeye başlar.
+        </p>
+        <a href="#" class="btn">read more</a>
+      </div>
+    </div>
+    <div class="box">
+      <div class="image">
+    <img src="img/s.png" alt="">
+      </div>
+      <div class="content">
+        <a href="#" class="title">The Shawshank Redemption</a>
+        <span>23 ocak 2025</span>
+        <p>
+          Esaretin Bedeli, Andy ve Red isimli iki mahkumun parmaklıklar ardında kurdukları dünyanın hikayesini anlatıyor.
+        </p>
+        <a href="#" class="btn">read more</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="footer">
+  <div class="search">
+    <input type="text" class="search-input" placeholder="Search"
+     />
+    <div id="karakterSayisi2"></div>
+    <button class="btn btn-primary">search</button>
+  </div>
+  <div class="share">
+    <a href="#" class="fab fa-facebook"></a>
+    <a href="#" class="fab fa-twitter"></a>
+    <a href="#" class="fab fa-instagram"></a>
+    <a href="#" class="fab fa-linkedin"></a>
+    <a href="#" class="fab fa-pinterest"></a>
+
+  
+  </div>
+  <iframe width="560" height="315" src="https://www.youtube.com/embed/BulFcN7DLAc" title="&quot;Titanic 3D&quot; Türkçe altyazılı HD fragman" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+  <div class="links">
+    <a href="#" class="active">Home</a>
+    <a href="#">About</a>
+    <a href="#">Menu</a>
+    <a href="#">Products</a>
+    <a href="#">Review</a>
+    <a href="#">Contact</a>
+    <a href="#">Blogs</a>
+  </div>
+
+  <div class="credit">
+    created by <span>Sude Hakyemez</span> | all rigths reserved
+  </div>
+</section>
+<p>Bugün günlerden :</p>
+<p id="test"></p>
+<!--! footer section end  -->
+<div id="yazi"><h1>SİNEMANIN MERKEZİ 100 DE 100 KALİTE!!!</h1></div>  
+<canvas id="canvas" width="1400" height="600"></canvas>  
+<div id="tic-tac-toe-board">
+  <div class="row">
+      <div class="cell" id="cell-1"></div>
+      <div class="cell" id="cell-2"></div>
+      <div class="cell" id="cell-3"></div>
+  </div>
+  <div class="row">
+      <div class="cell" id="cell-4"></div>
+      <div class="cell" id="cell-5"></div>
+      <div class="cell" id="cell-6"></div>
+  </div>
+  <div class="row">
+      <div class="cell" id="cell-7"></div>
+      <div class="cell" id="cell-8"></div>
+      <div class="cell" id="cell-9"></div>
+  </div>
+</div>
+<div id="gameMessage" class="game-message"></div>
+<button id="resetButton">Reset Game</button>
+<br>
+
+
+<button id="hoverButton">Üzerine Gel</button>
+
+<p id="demo2">Bu metin üzerine gelindiğinde rengi değişecek.</p>
+
+<br>
+<button id="removeButton">Öge Kaldır</button>
+
+<ul id="demo3">
+  <li>ıron man</li>
+  <li>spider man</li>
+  <li>captan america</li>
+</ul>
+
+<button id="toggleEffectButton">Geçiş Efekti</button>
+
+<div id="demo4"></div>
+
+<div id="mouseDiv" style="width:200px;height:100px;border:1px solid black;">
+  Mouse ile üzerine gelin.
+</div>
+
+
+
+<input type='file' id="fileInput" />
+<img id="imagePreview" src="img/arkaplan.jpg" alt="Görüntü önizlemesi" />
+
+
+<div id="clock"></div>
+
+
+
+<input type="text" id="inputField" placeholder="Buraya tıkla">
+
+
+<ul id="dynamicList">
+  <li>Öğe 1</li>
+</ul>
+
+<button id="addButton">Öğe Ekle</button>
+
+<script src="js/script2.js"></script>
+<script src="js/script.js"></script>
+</body>
+
+</html>
